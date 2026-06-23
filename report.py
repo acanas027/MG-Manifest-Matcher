@@ -304,28 +304,6 @@ def build_matched_packet(uploaded_files):
 # STREAMLIT UI
 # ============================================================
 
-# Colour legend
-with st.expander("Customer colour-coding rules"):
-    col_a, col_b, col_c = st.columns(3)
-    with col_a:
-        st.markdown("**Red text only**")
-        for kw, fc, bc in BOARD_CF_RULES:
-            if fc and not bc:
-                st.markdown(f"- {kw}")
-    with col_b:
-        st.markdown("** Yellow background**")
-        for kw, fc, bc in BOARD_CF_RULES:
-            if bc == (1.0, 1.0, 0.0) and not fc:
-                st.markdown(f"- {kw} *(black text)*")
-            elif bc == (1.0, 1.0, 0.0) and fc:
-                st.markdown(f"- {kw} *(red text)*")
-    with col_c:
-        st.markdown("** Light blue background**")
-        for kw, fc, bc in BOARD_CF_RULES:
-            if bc and bc != (1.0, 1.0, 0.0):
-                st.markdown(f"- {kw} *(black text)*")
-
-st.divider()
 
 uploaded_files = st.file_uploader(
     "Upload Loading Manifest and Shipping Manifest files",
